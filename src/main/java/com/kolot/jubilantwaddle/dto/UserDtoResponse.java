@@ -1,34 +1,23 @@
-package com.kolot.jubilantwaddle.model;
+package com.kolot.jubilantwaddle.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.kolot.jubilantwaddle.model.Subscribe;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.management.relation.Role;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "users")
-public class User {
-    @Id
+public class UserDtoResponse {
     private Long id;
     private String firstName;
     private String lastName;
     private String email;
-    private String password;
     private LocalDateTime dateOfRegistration;
-    @OneToMany
     private List<Subscribe> subscribe;
 }
-
-
-
