@@ -14,7 +14,7 @@ public class SubscribeDtoResponse {
     private Long id;
     private String Name;
     private String linkToSubscribe;
-    private Duration TYPE_OF_SUBSCRIBE;
+    private String TYPE_OF_SUBSCRIBE;
     private Double cost;
     private LocalDateTime startSubscribe;
     private LocalDateTime nextPaymentPeriod;

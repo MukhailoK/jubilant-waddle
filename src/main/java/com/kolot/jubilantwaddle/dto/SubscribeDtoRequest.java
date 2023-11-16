@@ -8,9 +8,9 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class SubscribeDtoRequest {
-    private String Name;
+    private String name;
     private Long userId;
-    private Duration TYPE_OF_SUBSCRIBE;
+    private String TYPE_OF_SUBSCRIBE;
     private Double cost;
     private boolean isActiv;
 }
