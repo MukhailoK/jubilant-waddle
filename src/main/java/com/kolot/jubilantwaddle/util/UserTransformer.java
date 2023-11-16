@@ -4,7 +4,7 @@ import com.kolot.jubilantwaddle.dto.UserDtoRequest;
 import com.kolot.jubilantwaddle.dto.UserDtoResponse;
 import com.kolot.jubilantwaddle.model.User;
 import com.kolot.jubilantwaddle.repository.UserRepository;
-import com.kolot.jubilantwaddle.util.validation.IsAlreadyExistException;
+import com.kolot.jubilantwaddle.validation.IsAlreadyExistException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

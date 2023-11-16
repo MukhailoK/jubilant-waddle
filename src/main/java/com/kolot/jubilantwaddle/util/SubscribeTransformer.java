@@ -4,9 +4,8 @@ import com.kolot.jubilantwaddle.dto.SubscribeDtoRequest;
 import com.kolot.jubilantwaddle.dto.SubscribeDtoResponse;
 import com.kolot.jubilantwaddle.model.Subscribe;
 import com.kolot.jubilantwaddle.model.User;
-import com.kolot.jubilantwaddle.repository.SubscribeRepository;
 import com.kolot.jubilantwaddle.repository.UserRepository;
-import com.kolot.jubilantwaddle.util.validation.NotFoundException;
+import com.kolot.jubilantwaddle.validation.NotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

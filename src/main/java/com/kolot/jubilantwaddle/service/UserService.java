@@ -10,7 +10,8 @@ import com.kolot.jubilantwaddle.repository.SubscribeRepository;
 import com.kolot.jubilantwaddle.repository.UserRepository;
 import com.kolot.jubilantwaddle.util.SubscribeTransformer;
 import com.kolot.jubilantwaddle.util.UserTransformer;
-import com.kolot.jubilantwaddle.util.validation.IsAlreadyExistException;
+import com.kolot.jubilantwaddle.validation.IsAlreadyExistException;
+import com.kolot.jubilantwaddle.validation.NotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -40,7 +41,7 @@ public class UserService {
             return transformer.transformFromUserToResponse(userRepository
                     .save(transformer.transformFromRequestToUser(request)));
         }
-        throw new RuntimeException("User with id " + id + " not found");
+        throw new NotFoundException("User with id " + id + " not found");
     }
 
     public UserDtoResponse addSubscribe(Long id, SubscribeDtoRequest request) {
@@ -49,7 +50,7 @@ public class UserService {
             user.getSubscribe().add(subscribeTransformer.transformFromRequestToSubscribe(request));
             return transformer.transformFromUserToResponse(userRepository.save(user));
         }
-        throw new RuntimeException("User with id " + id + " not found");
+        throw new NotFoundException("User with id " + id + " not found");
     }
 
     public UserDtoResponse stopSubscribe(Long userId, Long subscribeId) {
@@ -64,7 +65,7 @@ public class UserService {
                 return transformer.transformFromUserToResponse(userRepository.save(user));
             }).orElse(null);
         }
-        throw new RuntimeException("User with id " + userId + " not found");
+        throw new NotFoundException("User with id " + userId + " not found");
     }
 
     public boolean deleteUser(Long id) {
@@ -92,7 +93,7 @@ public class UserService {
                     .map(subscribeTransformer::transformFromSubscribeToResponse)
                     .toList();
         }
-        throw new RuntimeException("User with id " + userId + " not found");
+        throw new NotFoundException("User with id " + userId + " not found");
     }
 
     public Double getMonthlyAmountByUserId(Long id) {
@@ -100,6 +101,6 @@ public class UserService {
         if (user.isPresent()) {
             return user.get().getSubscribe().stream().mapToDouble(Subscribe::getCost).sum();
         }
-        throw new RuntimeException("User with id " + id + " not found");
+        throw new NotFoundException("User with id " + id + " not found");
     }
 }

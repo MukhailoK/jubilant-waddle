@@ -1,4 +1,4 @@
-package com.kolot.jubilantwaddle.util.validation;
+package com.kolot.jubilantwaddle.validation;
 
 public class NotFoundException extends RuntimeException {
 

@@ -1,10 +1,7 @@
 package com.kolot.jubilantwaddle.model;
 
 import com.kolot.jubilantwaddle.enums.Duration;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,13 +14,14 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "subscribes")
+@Table(name = "subscribe")
 public class Subscribe {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String Name;
+    private String name;
     private String linkToSubscribe;
-    private Duration TYPE_OF_SUBSCRIBE;
+    private String TYPE_OF_SUBSCRIBE;
     private Double cost;
     private LocalDateTime startSubscribe;
     private LocalDateTime nextPaymentPeriod;
